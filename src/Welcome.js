@@ -1,6 +1,7 @@
 import React from 'react';
 import "./welcome.css";
 import styles from './title.module.css';
+import { Link } from 'react-router-dom';
 
 export default class Welcome extends React.Component {
     constructor() { // lifecycle
@@ -49,6 +50,11 @@ export default class Welcome extends React.Component {
             <h3 className="message">Programming with Harsh - External CSS</h3>
             <h3 className="header">Swaroop - NO CSS HERE</h3>
             <h3 className={styles.header}>Swaroop - CSS HERE</h3>
+
+            <p>Existing Users</p>
+            <Link className="btn btn-outline-secondary" to="./login">Login</Link>
+            <p>New Users</p>
+            <Link className="btn btn-outline-secondary" to="./register">Register</Link>
         </div>
     }
 }

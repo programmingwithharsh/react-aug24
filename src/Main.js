@@ -8,6 +8,8 @@ import Header from './Header';
 import Footer from './Footer';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from './Nav';
+import Login from './Login';
+import Register from './Register';
 
 class Main extends React.Component {
     render() { // class component lifecycle
@@ -19,6 +21,8 @@ class Main extends React.Component {
                     <Route path="/addproduct" element={<AddProduct />} />
                     <Route path="/title" element={<Title />} />
                 </Route>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />         
             </Routes>
         </BrowserRouter>
     }
