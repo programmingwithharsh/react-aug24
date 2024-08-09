@@ -38,7 +38,8 @@ export default class Welcome extends React.Component {
             color: "white"
         };
         return <div>
-            <h1>State username is {this.state.username} and address is {this.state.address}</h1>
+            <h1>Welcome to Dashboard</h1>
+            <h4>State username is {this.state.username} and address is {this.state.address}</h4>
             <button onClick={this.updateUsername} className='btn btn-primary'>Update Username</button><hr />
             <button onClick={this.updateAddress} className='btn btn-primary'>Update Address</button><hr />
             <button onClick={this.updateAllDetails} className='btn btn-primary'>Update All Details</button>
