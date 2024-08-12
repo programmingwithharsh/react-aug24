@@ -11,6 +11,7 @@ import Nav from './Nav';
 import Login from './Login';
 import Register from './Register';
 import UserList from './UserList';
+import CoreBootstrap from './core-bootstrap/CoreBootstrap';
 
 class Main extends React.Component {
     constructor(props) { // class component lifecycle
@@ -42,6 +43,7 @@ class Main extends React.Component {
                     <Route path="/addproduct" element={<AddProduct />} />
                     <Route path="/title" element={<Title username={this.props.usernameProps} />} />
                     <Route path="/users" element={<UserList />} />
+                    <Route path="/corebootstrap" element={<CoreBootstrap />} />
                 </Route>
                 <Route path="/login" element={<Login username={this.props.usernameProps}  />} />
                 <Route path="/register" element={<Register />} />
