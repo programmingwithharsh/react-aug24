@@ -4,8 +4,8 @@ import styles from './title.module.css';
 import { Link } from 'react-router-dom';
 
 export default class Welcome extends React.Component {
-    constructor() { // lifecycle
-        super();
+    constructor(props) { // lifecycle
+        super(props);
         this.state = {
             username: "Sushant",
             address: "Mumbai"
@@ -41,6 +41,7 @@ export default class Welcome extends React.Component {
         return <div>
             <h1>Welcome to Dashboard</h1>
             <h4>State username is {this.state.username} and address is {this.state.address}</h4>
+            <h4>Props username is {this.props.username}</h4>
             <button onClick={this.updateUsername} className='btn btn-primary'>Update Username</button><hr />
             <button onClick={this.updateAddress} className='btn btn-primary'>Update Address</button><hr />
             <button onClick={this.updateAllDetails} className='btn btn-primary'>Update All Details</button>

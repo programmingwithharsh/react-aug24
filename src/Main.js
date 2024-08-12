@@ -10,19 +10,41 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from './Nav';
 import Login from './Login';
 import Register from './Register';
+import UserList from './UserList';
 
 class Main extends React.Component {
+    constructor(props) { // class component lifecycle
+        super(props);
+        // console.log(this.props); // debugging purpose
+        /*
+        {
+            "usernameProps": "Ankita",
+            "interestsProps": [
+                "Badminton",
+                "Basketball",
+                "Volleyball",
+                "Music"
+            ],
+            "birthProps": {
+                "year": 2001,
+                "place": "Pune"
+            }
+        }
+        */
+    }
+
     render() { // class component lifecycle
         return <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Nav />}>
-                    <Route index element={<Welcome />} />
+                    <Route index element={<Welcome username={this.props.usernameProps} />} />
                     <Route path="/products" element={<ProductList />} />
                     <Route path="/addproduct" element={<AddProduct />} />
-                    <Route path="/title" element={<Title />} />
+                    <Route path="/title" element={<Title username={this.props.usernameProps} />} />
+                    <Route path="/users" element={<UserList />} />
                 </Route>
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />         
+                <Route path="/login" element={<Login username={this.props.usernameProps}  />} />
+                <Route path="/register" element={<Register />} />
             </Routes>
         </BrowserRouter>
     }
