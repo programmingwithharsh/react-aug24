@@ -12,6 +12,8 @@ import Login from './Login';
 import Register from './Register';
 import UserList from './UserList';
 import CoreBootstrap from './core-bootstrap/CoreBootstrap';
+import SetLocalStorage from './core-bootstrap/SetLocalStorage';
+import GetLocalStorage from './core-bootstrap/GetLocalStorage';
 
 class Main extends React.Component {
     constructor(props) { // class component lifecycle
@@ -44,6 +46,8 @@ class Main extends React.Component {
                     <Route path="/title" element={<Title username={this.props.usernameProps} />} />
                     <Route path="/users" element={<UserList />} />
                     <Route path="/corebootstrap" element={<CoreBootstrap />} />
+                    <Route path="/setlc" element={<SetLocalStorage />} />
+                    <Route path="/getlc" element={<GetLocalStorage />} />
                 </Route>
                 <Route path="/login" element={<Login username={this.props.usernameProps}  />} />
                 <Route path="/register" element={<Register />} />

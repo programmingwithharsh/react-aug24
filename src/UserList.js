@@ -53,6 +53,7 @@ class UserList extends React.Component {
                         <th>Id</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,6 +63,13 @@ class UserList extends React.Component {
                                 <td>{user.id}</td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
+                                <td>
+                                    <span className='fa fa-star'></span>
+                                    <span className='fa fa-star'></span>
+                                    <span className='fa fa-star'></span>
+                                    <span className='fa fa-star'></span>
+                                    <span className='fa fa-star'></span>
+                                </td>
                             </tr>
                         ))
                     }
