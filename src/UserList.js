@@ -7,7 +7,8 @@ class UserList extends React.Component {
         console.log("constructor");
         this.state = {
             users1: [], // initially no users
-            users2: []
+            users2: [],
+            localUsers: []
         }
     }
 
@@ -38,6 +39,10 @@ class UserList extends React.Component {
             .catch((error) => {
                 console.log(error);
             })
+
+        this.setState({
+            localUsers: JSON.parse(localStorage.getItem("userInfo"))
+        })
     }
 
     shouldComponentUpdate() { // lifecycle
@@ -47,6 +52,39 @@ class UserList extends React.Component {
     render() { // lifecycle 2
         console.log("render");
         return (<>
+         <h1>Userlist Class component - using localStorage</h1>
+            <table className='table table-striped table-hover'>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        this.state.localUsers.map((user, index) => (
+                            <tr key={index}>
+                                <td>{user.id}</td>
+                                <td>{user.username}</td>
+                                <td>{user.email}</td>
+                                <td>
+                                    <Link to={`/edituser/${user.id}`}>Edit</Link> |
+                                    <button type="button" className="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Delete
+                                    </button>
+                                    <span className='fa fa-star'></span>
+                                    <span className='fa fa-star'></span>
+                                    <span className='fa fa-star'></span>
+                                    <span className='fa fa-star'></span>
+                                    <span className='fa fa-star'></span>
+                                </td>
+                            </tr>
+                        ))
+                    }
+                </tbody>
+            </table>
             <h1>Userlist Class component - Own API</h1>
             <table className='table table-striped table-hover'>
                 <thead>
@@ -103,7 +141,7 @@ class UserList extends React.Component {
                 </tbody>
             </table>
 
-            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">

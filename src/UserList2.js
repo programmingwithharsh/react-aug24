@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const UserList2 = () => {
     const [users1, setUser1] = useState([]); // users1 is empty array
     const [users2, setUser2] = useState([]); // users1 is empty array
+    const [localUsers, setLocalUsers] = useState([]); // users1 is empty array
 
     /*
     
@@ -32,6 +33,7 @@ const UserList2 = () => {
                 console.log(error);
             })
 
+        setLocalUsers(JSON.parse(localStorage.getItem("userInfo")));
     }, [])
 
     useEffect(() => {
@@ -49,6 +51,39 @@ const UserList2 = () => {
     }, [])
 
     return (<>
+        <h1>Userlist Funcional component - using localStorage</h1>
+        <table className='table table-striped table-hover'>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    localUsers.map((user, index) => (
+                        <tr key={index}>
+                            <td>{user.id}</td>
+                            <td>{user.username}</td>
+                            <td>{user.email}</td>
+                            <td>
+                                <Link to={`/edituser/${user.id}`}>Edit</Link> |
+                                <button type="button" className="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Delete
+                                </button>
+                                <span className='fa fa-star'></span>
+                                <span className='fa fa-star'></span>
+                                <span className='fa fa-star'></span>
+                                <span className='fa fa-star'></span>
+                                <span className='fa fa-star'></span>
+                            </td>
+                        </tr>
+                    ))
+                }
+            </tbody>
+        </table>
         <h1>Userlist Functional component - Own API</h1>
         <table className='table table-striped table-hover'>
             <thead>
@@ -105,7 +140,7 @@ const UserList2 = () => {
             </tbody>
         </table>
 
-        <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
