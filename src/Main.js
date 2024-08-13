@@ -2,10 +2,7 @@ import React from 'react';
 import Welcome from './Welcome';
 import AddProduct from './AddProduct';
 import ProductList from './ProductList';
-import Product from './Product';
 import Title from './Title';
-import Header from './Header';
-import Footer from './Footer';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Nav from './Nav';
 import Login from './Login';
@@ -16,28 +13,9 @@ import SetLocalStorage from './core-bootstrap/SetLocalStorage';
 import GetLocalStorage from './core-bootstrap/GetLocalStorage';
 import NotFound from './NotFound';
 import EditUser from './EditUser';
+import UserList2 from './UserList2';
 
 class Main extends React.Component {
-    constructor(props) { // class component lifecycle
-        super(props);
-        // console.log(this.props); // debugging purpose
-        /*
-        {
-            "usernameProps": "Ankita",
-            "interestsProps": [
-                "Badminton",
-                "Basketball",
-                "Volleyball",
-                "Music"
-            ],
-            "birthProps": {
-                "year": 2001,
-                "place": "Pune"
-            }
-        }
-        */
-    }
-
     render() { // class component lifecycle
         return <BrowserRouter>
             <Routes>
@@ -47,13 +25,14 @@ class Main extends React.Component {
                     <Route path="/addproduct" element={<AddProduct />} />
                     <Route path="/title" element={<Title username={this.props.usernameProps} />} />
                     <Route path="/users" element={<UserList />} />
+                    <Route path="/users2" element={<UserList2 />} />
                     <Route path="/edituser/:id" element={<EditUser />} />
                     <Route path="/corebootstrap" element={<CoreBootstrap />} />
                     <Route path="/setlc" element={<SetLocalStorage />} />
                     <Route path="/getlc" element={<GetLocalStorage />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
-                <Route path="/login" element={<Login username={this.props.usernameProps}  />} />
+                <Route path="/login" element={<Login username={this.props.usernameProps} />} />
                 <Route path="/register" element={<Register />} />
             </Routes>
         </BrowserRouter>

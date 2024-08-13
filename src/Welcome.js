@@ -2,6 +2,8 @@ import React from 'react';
 import "./welcome.css";
 import styles from './title.module.css';
 import { Link } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
 
 export default class Welcome extends React.Component {
     constructor(props) { // lifecycle
@@ -39,6 +41,7 @@ export default class Welcome extends React.Component {
             color: "white"
         };
         return <div>
+            <Header />
             <h1>Welcome to Dashboard</h1>
             <h4>State username is {this.state.username} and address is {this.state.address}</h4>
             <h4>Props username is {this.props.username}</h4>
@@ -56,6 +59,7 @@ export default class Welcome extends React.Component {
             <Link className="btn btn-outline-secondary" to="./login">Login</Link>
             <p>New Users</p>
             <Link className="btn btn-outline-secondary" to="./register">Register</Link>
+            <Footer />
         </div>
     }
 }

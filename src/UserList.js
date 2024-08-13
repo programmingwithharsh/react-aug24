@@ -47,7 +47,7 @@ class UserList extends React.Component {
     render() { // lifecycle 2
         console.log("render");
         return (<>
-            <h1>Userlist class component - Own API</h1>
+            <h1>Userlist Class component - Own API</h1>
             <table className='table table-striped table-hover'>
                 <thead>
                     <tr>
@@ -81,7 +81,7 @@ class UserList extends React.Component {
                 </tbody>
             </table>
 
-            <h1>Userlist class component - Other API</h1>
+            <h1>Userlist Class component - Other API</h1>
             <table className='table table-striped table-hover'>
                 <thead>
                     <tr>
