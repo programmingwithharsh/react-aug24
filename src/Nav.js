@@ -17,6 +17,7 @@ function Nav() {
                         <Link className="nav-link" to="/addproduct">Add Product</Link>
                         <Link className="nav-link" to="/title">Title</Link>
                         <Link className="nav-link" to="/corebootstrap">Core Bootstrap</Link>
+                        <Link className="nav-link" to="/reactbootstrap">React Bootstrap</Link>
                         <Link className="nav-link" to="/setlc">Set Item</Link>
                         <Link className="nav-link" to="/getlc">Get Item</Link>
                         <Link className="nav-link" to="/users">Users (class)</Link>

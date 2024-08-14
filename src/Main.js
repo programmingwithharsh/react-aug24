@@ -9,12 +9,13 @@ import Login from './Login';
 import Register from './Register';
 import UserList from './UserList';
 import CoreBootstrap from './core-bootstrap/CoreBootstrap';
-import SetLocalStorage from './core-bootstrap/SetLocalStorage';
-import GetLocalStorage from './core-bootstrap/GetLocalStorage';
+import SetLocalStorage from './localstorage/SetLocalStorage';
+import GetLocalStorage from './localstorage/GetLocalStorage';
 import NotFound from './NotFound';
 import EditUser from './EditUser';
 import UserList2 from './UserList2';
 import AddUser from './AddUser';
+import ReactBootstrap from './react-bootstrap/ReactBootstrap';
 
 class Main extends React.Component {
     render() { // class component lifecycle
@@ -30,6 +31,7 @@ class Main extends React.Component {
                     <Route path="/edituser/:id" element={<EditUser />} />
                     <Route path="/adduser" element={<AddUser />} />
                     <Route path="/corebootstrap" element={<CoreBootstrap />} />
+                    <Route path="/reactbootstrap" element={<ReactBootstrap />} />
                     <Route path="/setlc" element={<SetLocalStorage />} />
                     <Route path="/getlc" element={<GetLocalStorage />} />
                     <Route path="/register" element={<Register />} />
