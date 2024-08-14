@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 
-export default class Welcome extends React.Component {
+// export default class Welcome extends React.Component {
+export default class Welcome extends React.PureComponent {
     constructor(props) { // lifecycle
         super(props);
         this.state = {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 class UserList extends React.Component {
     constructor() { // lifecycle 1
@@ -8,7 +9,8 @@ class UserList extends React.Component {
         this.state = {
             users1: [], // initially no users
             users2: [],
-            localUsers: []
+            localUsers: [],
+            users3: []
         }
     }
 
@@ -32,6 +34,7 @@ class UserList extends React.Component {
         })
             .then((response) => response.json())
             .then((result) => {
+                console.log("Using Fetch Method API Response is", result);
                 this.setState({ // updating state, whenever state update component rerender
                     users2: result
                 })
@@ -41,8 +44,18 @@ class UserList extends React.Component {
             })
 
         this.setState({
-            localUsers: JSON.parse(localStorage.getItem("userInfo"))
+            localUsers: localStorage.getItem("userInfo") ? JSON.parse(localStorage.getItem("userInfo")) : []
         })
+
+        axios.get('https://jsonplaceholder.typicode.com/albums')
+            .then((result) => {
+                this.setState({ // updating state, whenever state update component rerender
+                    users3: result.data
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     shouldComponentUpdate() { // lifecycle
@@ -52,7 +65,28 @@ class UserList extends React.Component {
     render() { // lifecycle 2
         console.log("render");
         return (<>
-         <h1>Userlist Class component - using localStorage</h1>
+
+            <h1>Userlist Class component - List of Albums - Using Axios Module</h1>
+            <table className='table table-striped table-hover'>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        this.state.users3.map((user, index) => (
+                            <tr key={index}>
+                                <td>{user.id}</td>
+                                <td>{user.title}</td>
+                            </tr>
+                        ))
+                    }
+                </tbody>
+            </table>
+
+            <h1>Userlist Class component - using localStorage</h1>
             <table className='table table-striped table-hover'>
                 <thead>
                     <tr>

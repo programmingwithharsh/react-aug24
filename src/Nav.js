@@ -22,6 +22,7 @@ function Nav() {
                         <Link className="nav-link" to="/users">Users (class)</Link>
                         <Link className="nav-link" to="/users2">Users (functional)</Link>
                         <Link className="nav-link" to="/adduser">Add User</Link>
+                        <Link className="nav-link" to="/register">Register</Link>
                     </div>
                 </div>
             </div>

@@ -32,6 +32,7 @@ class Main extends React.Component {
                     <Route path="/corebootstrap" element={<CoreBootstrap />} />
                     <Route path="/setlc" element={<SetLocalStorage />} />
                     <Route path="/getlc" element={<GetLocalStorage />} />
+                    <Route path="/register" element={<Register />} />
                     <Route path="*" element={<NotFound />} />
                 </Route>
                 <Route path="/login" element={<Login username={this.props.usernameProps} />} />

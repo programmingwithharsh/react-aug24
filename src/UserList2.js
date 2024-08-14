@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 const UserList2 = () => {
     const [users1, setUser1] = useState([]); // users1 is empty array
     const [users2, setUser2] = useState([]); // users1 is empty array
     const [localUsers, setLocalUsers] = useState([]); // users1 is empty array
+    const [users3, setUser3] = useState([]);
 
     /*
     
@@ -33,7 +35,8 @@ const UserList2 = () => {
                 console.log(error);
             })
 
-        setLocalUsers(JSON.parse(localStorage.getItem("userInfo")));
+        let userInfo = localStorage.getItem("userInfo") ? JSON.parse(localStorage.getItem("userInfo")) : []
+        setLocalUsers(userInfo);
     }, [])
 
     useEffect(() => {
@@ -50,7 +53,37 @@ const UserList2 = () => {
 
     }, [])
 
+    useEffect(() => {
+        axios.get('https://jsonplaceholder.typicode.com/albums')
+            .then((result) => {
+                setUser3(result.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, [])
+
     return (<>
+
+        <h1>Userlist Functional component - List of Albums - Using Axios Module</h1>
+        <table className='table table-striped table-hover'>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    users3.map((user, index) => (
+                        <tr key={index}>
+                            <td>{user.id}</td>
+                            <td>{user.title}</td>
+                        </tr>
+                    ))
+                }
+            </tbody>
+        </table>
         <h1>Userlist Funcional component - using localStorage</h1>
         <table className='table table-striped table-hover'>
             <thead>
